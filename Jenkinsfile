@@ -4,7 +4,8 @@ pipeline{
     stages{
         stage('BUILD'){
             steps{
-                echo "git scm name is " + env.BRANCH_NAME
+                echo "git env.BRANCH_NAME is " + env.BRANCH_NAME
+                echo "git env.CHANGE_ID is " + env.CHANGE_ID
                 checkout scm
                 sh '''chmod 677 $WORKSPACE/Test.sh
                 sh $WORKSPACE/Test.sh'''
