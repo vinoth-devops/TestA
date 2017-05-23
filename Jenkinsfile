@@ -9,14 +9,26 @@ pipeline{
                 checkout scm
                 sh '''chmod 677 $WORKSPACE/Test.sh
                 sh $WORKSPACE/Test.sh'''
-                sh '''echo "I am build guy."
+                sh '''echo "I am common guy."
                 sleep 10'''                
             }
         }
         stage('DEPLOYMENT'){
+            when{
+                expression{ env.CHANGE_ID == null }
+            }
             steps{
-                 sh '''echo "I am deployment guy."
-                sleep 10'''
+                 sh '''echo "I am Normal and not a PR guy."
+                sleep 2'''
+            }
+        }
+        stage('PULL REQUEST'){
+             when{
+                expression{ env.CHANGE_ID != null }
+            }
+            steps{
+                 sh '''echo "I am PULL REQUEST guy."
+                sleep 2'''
             }
         }
     }
