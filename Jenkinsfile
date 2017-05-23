@@ -4,8 +4,10 @@ pipeline{
     stages{
         stage('BUILD'){
             steps{
-                echo "git scm name is" + env.BRANCH_NAME
+                echo "git scm name is " + env.BRANCH_NAME
                 checkout scm
+                sh '''chmod 677 $WORKSPACE/Test.sh
+                sh $WORKSPACE/Test.sh'''
                 sh '''echo "I am build guy."
                 sleep 10'''                
             }
