@@ -10,7 +10,8 @@ pipeline{
                 sh '''chmod 677 $WORKSPACE/Test.sh
                 sh $WORKSPACE/Test.sh'''
                 sh '''echo "I am common guy."
-                sleep 10'''                
+                sleep 10'''    
+                echo "Added from test123"
             }
         }
         stage('DEPLOYMENT'){
