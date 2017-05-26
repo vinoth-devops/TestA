@@ -9,7 +9,7 @@ pipeline{
                 checkout scm
                 sh '''chmod 677 $WORKSPACE/Test.sh
                 sh $WORKSPACE/Test.sh'''
-                sh '''echo "I am common guy."
+                sh '''echo "I am common guy. "
                 sleep 10'''    
                 echo "Added from test123"
             }
